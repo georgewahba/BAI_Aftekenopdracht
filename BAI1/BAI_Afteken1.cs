@@ -10,18 +10,38 @@ namespace BAI
 
         // ***************
         // * OPGAVE 1a/b *
-        // ***************
-        public static UInt64 Opg1aDecodeBase27(string base27getal)
+            public static UInt64 Opg1aDecodeBase27(string base27getal)
         {
             // *** IMPLEMENTATION HERE *** //
-
-            return 0;
+            // veranderen van base 27 naar base 10
+            UInt64 value = 0;
+            foreach (var ch in base27getal)
+            {
+                int nummer = BASE27CIJFERS.IndexOf(ch);
+                
+                value = value * 27 +(UInt64)nummer;
+            }
+            
+            return value;
         }
+            
         public static string Opg1bEncodeBase27(UInt64 base10getal)
         {
             // *** IMPLEMENTATION HERE *** //
+            //veranderen van base 10 naar string
+            
+            if (base10getal == 0) return "-";
 
-            return "";
+            var characters = new Stack<char>();
+            UInt64 nummer = base10getal;
+            while (nummer > 0)
+            {
+                UInt64 i = nummer / 27;
+                int n = (int)(nummer % 27);
+                characters.Push(BASE27CIJFERS[n]);
+                nummer = i;
+            }
+            return new string(characters.ToArray());
         }
 
         // ***************

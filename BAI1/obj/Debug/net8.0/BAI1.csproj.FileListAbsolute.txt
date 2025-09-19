@@ -26,3 +26,4 @@
 /Users/georgewahba/Library/CloudStorage/OneDrive-WindesheimOffice365/jaar_4/BAI/BAI_Aftekemopdracht/BAI1/obj/Debug/net8.0/BAI1.pdb
 /Users/georgewahba/Library/CloudStorage/OneDrive-WindesheimOffice365/jaar_4/BAI/BAI_Aftekemopdracht/BAI1/obj/Debug/net8.0/BAI1.genruntimeconfig.cache
 /Users/georgewahba/Library/CloudStorage/OneDrive-WindesheimOffice365/jaar_4/BAI/BAI_Aftekemopdracht/BAI1/obj/Debug/net8.0/ref/BAI1.dll
+/Users/georgewahba/Library/CloudStorage/OneDrive-WindesheimOffice365/jaar_4/BAI/BAI_Aftekemopdracht/BAI1/obj/Debug/net8.0/BAI1.sourcelink.json
