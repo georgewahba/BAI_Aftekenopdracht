@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "lIRkaWtQPNE=",
+  "success": true,
+  "projectFilePath": "/Users/georgewahba/Library/CloudStorage/OneDrive-WindesheimOffice365/jaar_4/BAI/BAI_Aftekemopdracht/BAI1/BAI1.csproj",
+  "expectedPackageFiles": [
+    "/Users/georgewahba/.nuget/packages/microsoft.netcore.app.ref/8.0.20/microsoft.netcore.app.ref.8.0.20.nupkg.sha512",
+    "/Users/georgewahba/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.20/microsoft.aspnetcore.app.ref.8.0.20.nupkg.sha512",
+    "/Users/georgewahba/.nuget/packages/microsoft.netcore.app.host.osx-arm64/8.0.20/microsoft.netcore.app.host.osx-arm64.8.0.20.nupkg.sha512"
+  ],
+  "logs": []
+}
