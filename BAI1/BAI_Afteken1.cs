@@ -14,6 +14,9 @@ namespace BAI
         {
             // *** IMPLEMENTATION HERE *** //
             // veranderen van base 27 naar base 10
+            // wat er hier gebeurd id dat ik 0 x 27 + index eerste letter doe,
+            // daarna word die 0 vervangen door dat antwoord dus bijv bij BAI word de 2e stap
+            // 2(2 is de index van B)  x 27 + 1 (1 is de index van A)
             UInt64 value = 0;
             foreach (var ch in base27getal)
             {
@@ -29,6 +32,9 @@ namespace BAI
         {
             // *** IMPLEMENTATION HERE *** //
             //veranderen van base 10 naar string
+            //wat er hier gebeurd is andersom
+            //dat grote getal word gedeeld door 27 en dan mod 27 de rest daarvan is de index in BASE27CIJFERS
+            //waarom een stack? omdat je achterstevoren werkt dus de eerste letter die in de stack gaat is de laatste letter van het woord
             
             if (base10getal == 0) return "-";
 
@@ -50,12 +56,37 @@ namespace BAI
         public static Stack<UInt64> Opdr2aWoordStack(List<string> woorden)
         {
             // *** IMPLEMENTATION HERE *** //
-            return null;
+            //omzetten vaar de lijst woorden naar nummer en pushen naar een stack
+            //wat er hier gebeurd is
+            //de lijst met woorden word met de functie van opdrachrt 1 omgezet naar base27 en dan in een stack gezet
+            var stack = new Stack<UInt64>();
+            foreach (var woord in woorden)
+            {
+                UInt64 nummer = Opg1aDecodeBase27(woord);
+                stack.Push(nummer);
+            }
+            
+            return stack;
         }
         public static Queue<string> Opdr2bKorteWoordenQueue(Stack<UInt64> woordstack)
         {
             // *** IMPLEMENTATION HERE *** //
-            return null;
+            // woorden met minder dan 3 letters in een queue zetten
+            // wat er hier gebeurd is
+            // max woord word berekend dat is 27^3 dan is het woord zzz alles daarboven is meer dan 3 letters
+            // in de loop worden de nummers opgehaald en vergeleken of het minder is dan 27 ^ 3, zo ja zet het in de queue
+            var queue = new Queue<string>();
+            const UInt64 maxwoord = 27 * 27 * 27;
+            while (woordstack.Count > 0)
+            {
+                UInt64 nummer = woordstack.Pop();
+                if (nummer < maxwoord)
+                {
+                    string woord = Opg1bEncodeBase27(nummer);
+                    queue.Enqueue(woord);
+                }
+            }
+            return queue;
         }
 
         static void Main(string[] args)
