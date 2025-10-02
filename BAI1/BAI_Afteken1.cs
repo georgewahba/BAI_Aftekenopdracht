@@ -10,7 +10,7 @@ namespace BAI
 
         // ***************
         // * OPGAVE 1a/b *
-            public static UInt64 Opg1aDecodeBase27(string base27getal)
+        public static UInt64 Opg1aDecodeBase27(string base27getal)
         {
             // *** IMPLEMENTATION HERE *** //
             // veranderen van base 27 naar base 10
@@ -20,34 +20,38 @@ namespace BAI
             UInt64 value = 0;
             foreach (var ch in base27getal)
             {
+                // Zuja": wat doe je als ch niet in BASE27CIJFERS zit?
+                // gevraad over de feedback maar dit hoefde ik niet aan te passen
                 int nummer = BASE27CIJFERS.IndexOf(ch);
-                
-                value = value * 27 +(UInt64)nummer;
+
+                value = value * 27 + (UInt64)nummer;
             }
-            
+
             return value;
         }
-            
+
         public static string Opg1bEncodeBase27(UInt64 base10getal)
         {
             // *** IMPLEMENTATION HERE *** //
             //veranderen van base 10 naar string
             //wat er hier gebeurd is andersom
-            //dat grote getal word gedeeld door 27 en dan mod 27 de rest daarvan is de index in BASE27CIJFERS
-            //waarom een stack? omdat je achterstevoren werkt dus de eerste letter die in de stack gaat is de laatste letter van het woord
+            //dat grote getal wordt gedeeld door 27 en dan mod 27 de rest daarvan is de index in BASE27CIJFERS
+            // 0 wordt weergegeven als '-'
             
             if (base10getal == 0) return "-";
+            
+            string resultaat = string.Empty;
+            UInt64 n = base10getal;
 
-            var characters = new Stack<char>();
-            UInt64 nummer = base10getal;
-            while (nummer > 0)
+            while (n > 0)
             {
-                UInt64 i = nummer / 27;
-                int n = (int)(nummer % 27);
-                characters.Push(BASE27CIJFERS[n]);
-                nummer = i;
+                // Eerst de rest (index in BASE27CIJFERS), daarna n delen door 27
+                int r = (int)(n % 27);
+                resultaat = BASE27CIJFERS[r] + resultaat; 
+                n /= 27;
             }
-            return new string(characters.ToArray());
+
+            return resultaat;
         }
 
         // ***************
@@ -65,7 +69,7 @@ namespace BAI
                 UInt64 nummer = Opg1aDecodeBase27(woord);
                 stack.Push(nummer);
             }
-            
+
             return stack;
         }
         public static Queue<string> Opdr2bKorteWoordenQueue(Stack<UInt64> woordstack)
