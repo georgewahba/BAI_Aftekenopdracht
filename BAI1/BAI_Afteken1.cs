@@ -33,13 +33,18 @@ namespace BAI
         public static string Opg1bEncodeBase27(UInt64 base10getal)
         {
             // *** IMPLEMENTATION HERE *** //
-            //veranderen van base 10 naar string
-            //wat er hier gebeurd is andersom
-            //dat grote getal wordt gedeeld door 27 en dan mod 27 de rest daarvan is de index in BASE27CIJFERS
+            // veranderen van base 10 naar string
+            // wat er hier gebeurd is andersom
+            // dat grote getal wordt gedeeld door 27 en dan mod 27 de rest daarvan is de index in BASE27CIJFERS
             // 0 wordt weergegeven als '-'
             
+            //feedback
+            // Zuja: Stack is hier niet nodig, je kunt ook een string gebruiken.
+            // Zuja: als je de volgende twee regels omdraait, zou je dan misschien een variabele minder kunnen gebruiken?
+            // Zuja: dus hier iets met die string doen.
+
             if (base10getal == 0) return "-";
-            
+
             string resultaat = string.Empty;
             UInt64 n = base10getal;
 
@@ -47,7 +52,7 @@ namespace BAI
             {
                 // Eerst de rest (index in BASE27CIJFERS), daarna n delen door 27
                 int r = (int)(n % 27);
-                resultaat = BASE27CIJFERS[r] + resultaat; 
+                resultaat = BASE27CIJFERS[r] + resultaat;
                 n /= 27;
             }
 
